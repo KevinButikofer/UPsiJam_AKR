@@ -6,7 +6,7 @@ using TMPro;
 
 public class CountPoints : MonoBehaviour
 {
-    private LayerMask m_LayerMask;
+    public LayerMask m_LayerMask;
 
 
     public TextMeshProUGUI textMesh;
@@ -17,13 +17,27 @@ public class CountPoints : MonoBehaviour
 
     void Update()
     {
-        Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity, m_LayerMask);
-        
-        textMesh.text = hitColliders.Length + "\npoints";
+        UpdateUI();
+
+        if(Input.GetKey(KeyCode.Q)) {
+            //finish
+        }
+    }
+
+    void UpdateUI() 
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapBoxAll(transform.position, transform.localScale, 0, m_LayerMask);
+        int points = 0;
         for (int i = 0; i < hitColliders.Length; i++)
         {
+            Collider2D collider = hitColliders[i];
+            PlayerController pc = collider.gameObject.GetComponent<PlayerController>();
             //TODO: Count the points
+            // points += pc.points;
+            points += 1;
         }
+
+        textMesh.text = points + "\npoints";
     }
 
 }

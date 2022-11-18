@@ -10,8 +10,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float weight = 1;
 
+    [SerializeField]
+    public int score;
+
     private Rigidbody2D rb;
     private bool grounded = false;
+    
 
     // Start is called before the first frame update
     void Start()

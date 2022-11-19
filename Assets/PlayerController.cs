@@ -19,8 +19,6 @@ public class PlayerController : MonoBehaviour
     private bool grounded = false;
 
     public TextMeshProUGUI scoreText;
-
-    private float randomModifier;
     
 
     // Start is called before the first frame update
@@ -28,8 +26,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.mass = weight;
-        // randomModifier = Random.Range(1f, 1.5f);
-        randomModifier = 1;
     }
 
     // Update is called once per frame
@@ -38,7 +34,7 @@ public class PlayerController : MonoBehaviour
         grounded = Mathf.Abs(rb.velocity.y) < 1e-3;
 
         float f = Input.GetAxis("Horizontal");
-        rb.AddForce(new Vector2(f * 1000 * Time.deltaTime * randomModifier, 0));
+        rb.AddForce(new Vector2(f * 1000 * Time.deltaTime, 0));
         float v = Mathf.Abs(rb.velocity.x);
         
         float sign;

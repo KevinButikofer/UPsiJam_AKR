@@ -19,7 +19,11 @@ public class PlayerController : MonoBehaviour
     private bool grounded = false;
     private Animator animator;
 
+    public bool isFreezed = false;
+
     public TextMeshProUGUI scoreText;
+    
+    private SpriteRenderer sr;
     
 
     // Start is called before the first frame update
@@ -28,11 +32,17 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.mass = weight;
         animator = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isFreezed)
+            sr.color = new Color(0.3f, 0.3f, 0.3f, 1);
+        else
+            sr.color = Color.white;
+
         grounded = Mathf.Abs(rb.velocity.y) < 1e-3;
 
         float f = Input.GetAxis("Horizontal");
@@ -69,6 +79,6 @@ public class PlayerController : MonoBehaviour
         else if(Mathf.Abs(rb.velocity.x) < 1e-3 && animator.GetBool("isMoving"))
             animator.SetBool("isMoving", false);
 
-        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * sign, transform.localScale.y, transform.localScale.z);    
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * sign, transform.localScale.y, transform.localScale.z);
     }
 }

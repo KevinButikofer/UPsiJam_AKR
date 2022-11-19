@@ -77,4 +77,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMeanPoint: {fileID: 1270166073}
-  startPlayer: {fileID: 6036068043470314572, guid: 52e25811cffebef4f9acc264903fb7e4, type: 3}
+  startPlayer: {fileID: 2441741728116873946, guid: 075e6ac64d9144604b6763905dbc1605, type: 3}

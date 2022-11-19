@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool grounded = false;
+    private Animator animator;
 
     public TextMeshProUGUI scoreText;
     
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.mass = weight;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
         float f = Input.GetAxis("Horizontal");
         if (Mathf.Abs(f) < 1e-3 && Mathf.Abs(rb.velocity.x) > 1e-3) rb.AddForce(new Vector2(rb.velocity.x * -200f * Time.deltaTime, 0));
+       
         rb.AddForce(new Vector2(f * 1000 * Time.deltaTime, 0));
         float v = Mathf.Abs(rb.velocity.x);
         
@@ -60,5 +63,12 @@ public class PlayerController : MonoBehaviour
             else
                 gameObject.layer = LayerMask.NameToLayer("Default");
         }
+
+        if (Mathf.Abs(rb.velocity.x) > 1e-3 && !animator.GetBool("isMoving"))
+            animator.SetBool("isMoving", true);
+        else if(Mathf.Abs(rb.velocity.x) < 1e-3 && animator.GetBool("isMoving"))
+            animator.SetBool("isMoving", false);
+
+        transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * sign, transform.localScale.y, transform.localScale.z);    
     }
 }

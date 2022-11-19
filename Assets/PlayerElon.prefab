@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 8918220487081663820}
   - component: {fileID: 6263087826250671211}
   - component: {fileID: 1167334455873690801}
+  - component: {fileID: 5500148760789249150}
   m_Layer: 3
   m_Name: PlayerElon
   m_TagString: Player
@@ -314,7 +315,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4fe13ff92514c42178ce40c6ac2a189e, type: 3}
+  m_Sprite: {fileID: -517514561, guid: 9aa471104a60195489e12b605a3a0b8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -342,7 +343,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.125, y: 1.765}
+    oldSize: {x: 2.24, y: 3.52}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -400,3 +401,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5dc66436ca72dc48b0fcb14a80297fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &5500148760789249150
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8918220487081663821}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 54ae775a44d5c14449072e7679cc498c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

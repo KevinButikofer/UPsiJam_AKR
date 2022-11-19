@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerFactory: {fileID: 6036068043470314572, guid: 52e25811cffebef4f9acc264903fb7e4, type: 3}
+  ac_addplayer: {fileID: 8300000, guid: 29270e766cb87b3fc9e923245cabbd5e, type: 3}
 --- !u!212 &1649256052
 SpriteRenderer:
   m_ObjectHideFlags: 0

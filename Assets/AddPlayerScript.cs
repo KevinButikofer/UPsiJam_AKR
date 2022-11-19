@@ -8,10 +8,15 @@ public class AddPlayerScript : MonoBehaviour
 
     public GameObject playerFactory;
 
+    private MusicController mc;
+
+    public AudioClip ac_addplayer;
+
     // Start is called before the first frame update
     void Start()
     {
         playerContainer = GameObject.Find("Players");
+        mc = GameObject.FindObjectOfType<MusicController>();
     }
 
     // Update is called once per frame
@@ -24,6 +29,7 @@ public class AddPlayerScript : MonoBehaviour
     {
         if(collider.tag == "Player")
         {
+            mc.PlaySFX(ac_addplayer);
             Instantiate(playerFactory, transform.position, Quaternion.identity, playerContainer.transform);
             Destroy(gameObject);
         }

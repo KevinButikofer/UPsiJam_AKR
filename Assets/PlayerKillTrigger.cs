@@ -6,17 +6,22 @@ public class PlayerKillTrigger : MonoBehaviour
 {
 
     private float counter;
-    private float step = 1.0f/60.0f;
+    private float step = 1.0f/(3*60.0f);
     private bool animation_start;
 
     private SpriteRenderer sr;
     private Rigidbody2D rb;
+    private MusicController mc;
+
+    public AudioClip ac_death;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
+        mc = GameObject.FindObjectOfType<MusicController>();
     }
 
     // Update is called once per frame
@@ -46,6 +51,7 @@ public class PlayerKillTrigger : MonoBehaviour
 
     public void Kill()
     {
+        mc.PlaySFX(ac_death);
         animation_start = true;
         counter = 0;
         rb.bodyType = RigidbodyType2D.Static;

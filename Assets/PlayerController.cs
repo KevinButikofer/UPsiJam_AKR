@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
         grounded = Mathf.Abs(rb.velocity.y) < 1e-3;
 
         float f = Input.GetAxis("Horizontal");
+        if (Mathf.Abs(f) < 1e-3 && Mathf.Abs(rb.velocity.x) > 1e-3) rb.AddForce(new Vector2(rb.velocity.x * -200f * Time.deltaTime, 0));
         rb.AddForce(new Vector2(f * 1000 * Time.deltaTime, 0));
         float v = Mathf.Abs(rb.velocity.x);
         
@@ -44,10 +45,8 @@ public class PlayerController : MonoBehaviour
         else{
             sign = rb.velocity.x / v;
         }
-
         rb.velocity = new Vector2(Mathf.Min(v, maxSpeed) * sign, rb.velocity.y);
-
-        if(Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
             rb.AddForce(new Vector2(0, 1000));
         }

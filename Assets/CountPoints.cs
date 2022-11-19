@@ -36,8 +36,8 @@ public class CountPoints : MonoBehaviour
             // points += pc.points;
             points += 1;
         }
-
-        textMesh.text = points + "\npoints";
+        int totalPoints = points + GameManager.collected;
+        textMesh.text = points + " + " + GameManager.collected + " = " + totalPoints + "\npoints";
     }
 
 }

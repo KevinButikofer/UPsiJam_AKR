@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9146103437019129194}
   m_Layer: 3
   m_Name: Elon
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 4
   weight: 1.5
+  score: 0

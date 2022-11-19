@@ -843,6 +843,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!1001 &1000447556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -917,6 +918,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6036068043470314568, guid: 52e25811cffebef4f9acc264903fb7e4, type: 3}
   m_PrefabInstance: {fileID: 1000447556}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> da1e6ca (wip)
 --- !u!1001 &1137190888
 PrefabInstance:
   m_ObjectHideFlags: 0

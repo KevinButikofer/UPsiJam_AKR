@@ -30,15 +30,24 @@ public class PlayerKillTrigger : MonoBehaviour
 
         if(counter >= 1 || transform.position.y < -5) {
             Destroy(this.gameObject);
+            if(GameObject.FindGameObjectsWithTag("Player").Length <= 0)
+            {
+                GameManager.RestartScene();
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         if(collision.CompareTag("killer")) {
-            animation_start = true;
-            counter = 0;
-            rb.bodyType = RigidbodyType2D.Static;
+            Kill();
         }
+    }
+
+    public void Kill()
+    {
+        animation_start = true;
+        counter = 0;
+        rb.bodyType = RigidbodyType2D.Static;
     }
 }

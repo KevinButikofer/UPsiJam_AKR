@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using TMPro;
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
@@ -15,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool grounded = false;
+
+    public TextMeshProUGUI scoreText;
     
 
     // Start is called before the first frame update
@@ -40,5 +44,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, 400));
         }
+
+        scoreText.text = score.ToString();
     }
 }

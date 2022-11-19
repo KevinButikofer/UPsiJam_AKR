@@ -32,9 +32,7 @@ public class CountPoints : MonoBehaviour
         {
             Collider2D collider = hitColliders[i];
             PlayerController pc = collider.gameObject.GetComponent<PlayerController>();
-            //TODO: Count the points
-            // points += pc.points;
-            points += 1;
+            points += pc.score;
         }
         int totalPoints = points + GameManager.collected;
         textMesh.text = points + " + " + GameManager.collected + " = " + totalPoints + "\npoints";

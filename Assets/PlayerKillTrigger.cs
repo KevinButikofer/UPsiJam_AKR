@@ -30,7 +30,7 @@ public class PlayerKillTrigger : MonoBehaviour
 
         if(counter >= 1 || transform.position.y < -5) {
             Destroy(this.gameObject);
-            if(GameObject.FindGameObjectsWithTag("Player").Length <= 0)
+            if(GameObject.FindGameObjectsWithTag("Player").Length <= 1)
             {
                 GameManager.RestartScene();
             }

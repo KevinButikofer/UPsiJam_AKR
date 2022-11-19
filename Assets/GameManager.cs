@@ -28,7 +28,6 @@ public class GameManager
 
     public static void RestartScene()
     {
-        
-        SceneManager.LoadScene(currentScene);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

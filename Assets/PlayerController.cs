@@ -52,5 +52,13 @@ public class PlayerController : MonoBehaviour
         }
 
         scoreText.text = score.ToString();
+        
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            if (gameObject.layer == LayerMask.NameToLayer("Default"))
+                gameObject.layer = LayerMask.NameToLayer("Players");
+            else
+                gameObject.layer = LayerMask.NameToLayer("Default");
+        }
     }
 }

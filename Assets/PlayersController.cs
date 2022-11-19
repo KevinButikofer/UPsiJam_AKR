@@ -12,7 +12,6 @@ public class PlayersController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Spawn();
     }
 
     // Update is called once per frame
@@ -27,10 +26,5 @@ public class PlayersController : MonoBehaviour
         if(players.Length > 0)
             centroid /= players.Length;
         playerMeanPoint.position = centroid;
-    }
-
-    void Spawn()
-    {
-        Instantiate(startPlayer, new Vector3(0,0,0), Quaternion.identity, transform);
     }
 }

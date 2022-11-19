@@ -9,6 +9,10 @@ public class PlayersController : MonoBehaviour
 
     public Object startPlayer;
 
+    private PlayerController currentFreeze;
+
+    public LayerMask playerMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,23 +27,42 @@ public class PlayersController : MonoBehaviour
         foreach(GameObject player in players)
         {
             centroid += player.transform.position;
-            player.transform.GetComponent<PlayerController>().isFreezed = false;
         }
         if(players.Length > 0)
             centroid /= players.Length;
         playerMeanPoint.position = centroid;
 
-        if (Input.GetMouseButton(0))
-        {;
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
             Vector3 origin = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(origin, Vector3.forward, 10.0f);
+            RaycastHit2D hit = Physics2D.Raycast(origin, Vector3.forward, 10.0f, playerMask);
             if (hit.collider != null)
             {
+                Debug.Log(hit.transform.name);
                 if (hit.transform.CompareTag("Player"))
                 {
-                    hit.transform.GetComponent<PlayerController>().isFreezed = true;
+                    PlayerController newFreeze = hit.transform.GetComponent<PlayerController>();
+                    if (currentFreeze == null)
+                    {
+                        newFreeze.isFreezed = true;
+                        currentFreeze = newFreeze;
+                    }
+                    else if (currentFreeze == newFreeze)
+                    {
+                        newFreeze.isFreezed = false;
+                        currentFreeze = null;
+                    }
+                    else if(currentFreeze != newFreeze)
+                    {
+                        currentFreeze.isFreezed = false;
+                        newFreeze.isFreezed = true;
+                        currentFreeze = newFreeze;
+                    }
                 }
             }
+
         }
     }
 }

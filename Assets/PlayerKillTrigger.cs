@@ -37,6 +37,7 @@ public class PlayerKillTrigger : MonoBehaviour
             Destroy(this.gameObject);
             if(GameObject.FindGameObjectsWithTag("Player").Length <= 1)
             {
+                GameManager.collected = 0;
                 GameManager.RestartScene();
             }
         }

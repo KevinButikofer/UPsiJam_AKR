@@ -39,7 +39,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (isFreezed)
+        {
             sr.color = new Color(0.3f, 0.3f, 0.3f, 1);
+            return;
+        }
         else
             sr.color = Color.white;
 
@@ -68,10 +71,10 @@ public class PlayerController : MonoBehaviour
         
         if(Input.GetKeyDown(KeyCode.C))
         {
-            if (gameObject.layer == LayerMask.NameToLayer("Default"))
+            if (gameObject.layer == LayerMask.NameToLayer("PlayersCollisions"))
                 gameObject.layer = LayerMask.NameToLayer("Players");
             else
-                gameObject.layer = LayerMask.NameToLayer("Default");
+                gameObject.layer = LayerMask.NameToLayer("PlayersCollisions");
         }
 
         if (Mathf.Abs(rb.velocity.x) > 1e-3 && !animator.GetBool("isMoving"))

@@ -78,3 +78,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerMeanPoint: {fileID: 1270166073}
   startPlayer: {fileID: 2441741728116873946, guid: 075e6ac64d9144604b6763905dbc1605, type: 3}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 72

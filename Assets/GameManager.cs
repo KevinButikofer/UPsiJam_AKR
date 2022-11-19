@@ -9,7 +9,7 @@ public class GameManager
 
     public static int collected = 0;
 
-    private static string[] scenes = {"RaphaelScene", "MainScene"};
+    private static string[] scenes = {"Niveau 1", "Niveau 2" };
 
     private static int currentScene = 0;
 

@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
-    private AudioSource as_;
+    private AudioSource as_music;
+    private AudioSource as_sfx;
 
     // Start is called before the first frame update
     void Start()
     {
-        as_ = GetComponent<AudioSource>();
+        as_music = GetComponents<AudioSource>()[0];
+        as_music.loop = true;
+        as_sfx = GetComponents<AudioSource>()[1];
     }
 
     // Update is called once per frame
@@ -19,9 +22,19 @@ public class MusicController : MonoBehaviour
         
     }
 
-    public void Play(AudioClip ac)
+    public void PlayMusic(AudioClip ac)
     {
-        if(as_.clip == null || as_.clip != null && as_.clip.name != ac.name){
+        Play(as_music, ac, false);
+    }
+
+    public void PlaySFX(AudioClip ac)
+    {
+        Play(as_sfx, ac, true);
+    }
+
+    private void Play(AudioSource as_, AudioClip ac, bool bypass)
+    {
+        if(bypass || as_.clip == null || as_.clip != null && as_.clip.name != ac.name){
             as_.clip = ac;
             as_.Play();
         }

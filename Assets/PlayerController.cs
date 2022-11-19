@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space) && grounded)
         {
-            rb.AddForce(new Vector2(0, 400));
+            rb.AddForce(new Vector2(0, 500));
         }
 
         scoreText.text = score.ToString();

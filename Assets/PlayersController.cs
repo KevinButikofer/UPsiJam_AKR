@@ -21,9 +21,10 @@ public class PlayersController : MonoBehaviour
         {
             foreach(Transform child in transform)
             {
-                centroid += child.transform.position;
+                if(child.gameObject.CompareTag("Player"))
+                    centroid += child.transform.position;
             }
-            centroid /= (transform.childCount + 1);
+            centroid /= transform.childCount;
         }
         playerMeanPoint.position = centroid;
     }

@@ -28,14 +28,14 @@ public class PlayerKillTrigger : MonoBehaviour
             sr.color = new Color(1, 1 - counter, 1 - counter);
         }
 
-        if(counter >= 1) {
+        if(counter >= 1 || transform.position.y < -5) {
             Destroy(this.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        if(collision.tag == "Killer") {
+        if(collision.CompareTag("killer")) {
             animation_start = true;
             counter = 0;
             rb.bodyType = RigidbodyType2D.Static;

@@ -83,5 +83,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isMoving", false);
 
         transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * sign, transform.localScale.y, transform.localScale.z);
+        Transform cT = transform.Find("Canvas").transform;
+        cT.transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * sign, cT.transform.localScale.y, cT.transform.localScale.z);
     }
 }

@@ -12,7 +12,7 @@ public class CountPoints : MonoBehaviour
 
     public TextMeshProUGUI textMesh;
 
-    private bool hasTriggerEnd = false;
+    private bool hasFinished = false;
     public UiManager uiManager;
 
 
@@ -24,25 +24,20 @@ public class CountPoints : MonoBehaviour
     {
         int points = UpdateUI();
 
-        if(Input.GetKeyDown(KeyCode.Q)) {
+        if(Input.GetKeyDown(KeyCode.Q) && hasFinished) {
             //finish
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             for(int i = 0; i < players.Length; i++) {
                 Transform pi = players[i].transform;
                 PlayerKillTrigger pikt = pi.GetComponent<PlayerKillTrigger>();
-                pikt.Kill();
+                //pikt.Kill();
             }
-            GameManager.collected = points;
-            GameManager.totalTime += uiManager.time;
-
-            hasTriggerEnd = true;
-        }
-
-        if(hasTriggerEnd){
-            GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-            if(players.Length <= 0)
+                GameManager.collected = points;
+                GameManager.totalTime += uiManager.time;
                 GameManager.NextScene();
         }
+        
+                
     }
 
     int UpdateUI() 
@@ -59,5 +54,11 @@ public class CountPoints : MonoBehaviour
         textMesh.text = points + " + " + GameManager.collected + " = " + totalPoints + "\npoints";
         return totalPoints;
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Player")
+        {
+            hasFinished = true;
+        }
+    }
 }

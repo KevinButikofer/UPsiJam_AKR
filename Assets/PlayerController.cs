@@ -43,6 +43,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (gameObject.layer == LayerMask.NameToLayer("PlayersCollisions"))
+                gameObject.layer = LayerMask.NameToLayer("Players");
+            else
+                gameObject.layer = LayerMask.NameToLayer("PlayersCollisions");
+        }
         if (isFreezed)
         {
             sr.color = new Color(0.3f, 0.3f, 0.3f, 1);
@@ -73,15 +80,7 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(new Vector2(0, 1000));
         }
 
-        scoreText.text = score.ToString();
-        
-        if(Input.GetKeyDown(KeyCode.C))
-        {
-            if (gameObject.layer == LayerMask.NameToLayer("PlayersCollisions"))
-                gameObject.layer = LayerMask.NameToLayer("Players");
-            else
-                gameObject.layer = LayerMask.NameToLayer("PlayersCollisions");
-        }
+        scoreText.text = score.ToString();        
 
         if (Mathf.Abs(rb.velocity.x) > 1e-3 && !animator.GetBool("isMoving"))
             animator.SetBool("isMoving", true);

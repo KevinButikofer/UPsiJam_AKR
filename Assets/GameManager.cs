@@ -19,7 +19,7 @@ public class GameManager
         currentScene++;
         try
         {
-            SceneManager.LoadScene(scenes[currentScene]);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         catch
         {

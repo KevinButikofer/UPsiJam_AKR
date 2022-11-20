@@ -13,6 +13,7 @@ public class CountPoints : MonoBehaviour
     public TextMeshProUGUI textMesh;
 
     private bool hasTriggerEnd = false;
+    public UiManager uiManager;
 
 
     void Start()
@@ -23,7 +24,7 @@ public class CountPoints : MonoBehaviour
     {
         int points = UpdateUI();
 
-        if(Input.GetKey(KeyCode.Q)) {
+        if(Input.GetKeyDown(KeyCode.Q)) {
             //finish
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
             for(int i = 0; i < players.Length; i++) {
@@ -31,6 +32,8 @@ public class CountPoints : MonoBehaviour
                 PlayerKillTrigger pikt = pi.GetComponent<PlayerKillTrigger>();
                 pikt.Kill();
             }
+            GameManager.collected = points;
+            GameManager.totalTime += uiManager.time;
 
             hasTriggerEnd = true;
         }

@@ -1032,8 +1032,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1033518722}
     m_Modifications:
     - target: {fileID: 4196376048874983018, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
+      propertyPath: m_SpriteTilingProperty.newSize.x
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4196376048874983018, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4972600879209684455, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
       propertyPath: m_Size.x
@@ -1583,6 +1587,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2398e97f065f55d4b9ca836ba791a332, type: 3}
+--- !u!114 &708209458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4890527786733383613, guid: 2398e97f065f55d4b9ca836ba791a332, type: 3}
+  m_PrefabInstance: {fileID: 708209457}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9b3a74c9f846b54787123d3113da0ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &712870349 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4014572815032623712, guid: 451061c76b59913c8a6b5a6ee3a7853b, type: 3}
@@ -3455,7 +3470,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4196376048874983018, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4972600879209684455, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
       propertyPath: m_Size.y
@@ -3534,7 +3549,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4196376048874983018, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4972600879209684455, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
       propertyPath: m_Size.y
@@ -3770,6 +3785,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1273521545, guid: d81f425bce6ddac16a63dbd5031339bd, type: 3}
+      propertyPath: uiManager
+      value: 
+      objectReference: {fileID: 708209458}
     - target: {fileID: 5941419516477684630, guid: d81f425bce6ddac16a63dbd5031339bd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.76
@@ -4812,10 +4831,6 @@ PrefabInstance:
     - target: {fileID: 4196376048874983018, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
       propertyPath: m_AutoTiling
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4196376048874983018, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
-      propertyPath: m_EdgeRadius
-      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4196376048874983018, guid: 5e014608642ff42c69ff26de6ea3d447, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y

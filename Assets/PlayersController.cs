@@ -30,6 +30,11 @@ public class PlayersController : MonoBehaviour
         }
         if(players.Length > 0)
             centroid /= players.Length;
+        if (players.Length == 0)
+        {
+            GameManager.collected = 0;
+            GameManager.RestartScene();
+        }
         playerMeanPoint.position = centroid;
 
 

@@ -34,7 +34,8 @@ public class AddPlayerScript : MonoBehaviour
             if (collider.tag == "Player")
             {
                 mc.PlaySFX(ac_addplayer);
-                Instantiate(playerFactory, transform.position, Quaternion.identity, playerContainer.transform);
+                GameObject player = Instantiate(playerFactory, transform.position, Quaternion.identity, playerContainer.transform);
+                player.layer = collider.gameObject.layer;
                 Destroy(gameObject);
                 used = true;
             }

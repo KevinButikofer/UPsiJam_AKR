@@ -14,6 +14,6 @@ public class MenuUiManager : MonoBehaviour
     // Update is called once per frame
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Niveau 1");
     }
 }

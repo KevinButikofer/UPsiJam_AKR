@@ -24,6 +24,10 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI scoreText;
     
     private SpriteRenderer sr;
+
+    private MusicController mc;
+
+    public AudioClip ac_jump;
     
 
     // Start is called before the first frame update
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
         rb.mass = weight;
         animator = GetComponent<Animator>();
         sr = GetComponent<SpriteRenderer>();
+        mc = GameObject.FindObjectOfType<MusicController>();
     }
 
     // Update is called once per frame
@@ -64,6 +69,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(Mathf.Min(v, maxSpeed) * sign, rb.velocity.y);
         if (Input.GetKeyDown(KeyCode.Space) && grounded)
         {
+            mc.PlaySFX(ac_jump);
             rb.AddForce(new Vector2(0, 1000));
         }
 

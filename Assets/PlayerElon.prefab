@@ -390,6 +390,7 @@ MonoBehaviour:
   score: 3
   isFreezed: 0
   scoreText: {fileID: 2884425473773905601}
+  ac_jump: {fileID: 8300000, guid: ca044de8e96c7fa2397ac04dd7a8d1b4, type: 3}
 --- !u!114 &1167334455873690801
 MonoBehaviour:
   m_ObjectHideFlags: 0

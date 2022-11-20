@@ -12,7 +12,6 @@ public class PlayerKillTrigger : MonoBehaviour
     private SpriteRenderer sr;
     private Rigidbody2D rb;
     private MusicController mc;
-
     public AudioClip ac_death;
     
 

@@ -152,7 +152,9 @@ MonoBehaviour:
   maxSpeed: 5
   weight: 1.2
   score: 5
+  isFreezed: 0
   scoreText: {fileID: 8225442973334839638}
+  ac_jump: {fileID: 8300000, guid: 34ab3c7f0b608e70ca6c6ad2075216f0, type: 3}
 --- !u!114 &5337356970210253606
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,14 +6,20 @@ using UnityEngine;
 public class MusicController : MonoBehaviour
 {
     private AudioSource as_music;
-    private AudioSource as_sfx;
+    private List<AudioSource> as_sfx;
 
     // Start is called before the first frame update
     void Start()
     {
-        as_music = GetComponents<AudioSource>()[0];
+        as_sfx = new List<AudioSource>();
+        AudioSource[] ass = GetComponents<AudioSource>();
+        as_music = ass[0];
         as_music.loop = true;
-        as_sfx = GetComponents<AudioSource>()[1];
+        for(int i = 1; i < ass.Length; i++)
+        {
+            ass[i].volume = 0.5f;
+            as_sfx.Add(ass[i]);
+        }
     }
 
     // Update is called once per frame
@@ -29,7 +35,13 @@ public class MusicController : MonoBehaviour
 
     public void PlaySFX(AudioClip ac)
     {
-        Play(as_sfx, ac, true);
+        foreach(AudioSource as_ in as_sfx)
+        {
+            if(as_.isPlaying)
+                continue;
+            Play(as_, ac, true);
+            break;
+        }
     }
 
     private void Play(AudioSource as_, AudioClip ac, bool bypass)

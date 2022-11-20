@@ -7,6 +7,7 @@ public class DuplicateScoreItem : MonoBehaviour
 
     private MusicController mc;
     public AudioClip ac_2x;
+    private bool used;
 
 
     void Start()
@@ -16,11 +17,15 @@ public class DuplicateScoreItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (!used)
         {
-            mc.PlaySFX(ac_2x);
-            other.GetComponent<PlayerController>().score *= 2;
-            Destroy(gameObject);
+            if (other.CompareTag("Player"))
+            {
+                mc.PlaySFX(ac_2x);
+                other.GetComponent<PlayerController>().score *= 2;
+                Destroy(gameObject);
+                used = true;
+            }
         }
     }
 }

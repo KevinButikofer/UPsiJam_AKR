@@ -6,6 +6,7 @@ public class Collect : MonoBehaviour
 {
     public AudioClip ac_collect;
     private MusicController mc;
+    private bool used = false;
 
     // Start is called before the first frame update
     void Start()
@@ -21,12 +22,15 @@ public class Collect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
-        if (collision.tag == "Player")
+        if (!used)
         {
-            mc.PlaySFX(ac_collect);
-            GameManager.collected += 1;
-            Destroy(gameObject);
+            if (collision.tag == "Player")
+            {
+                mc.PlaySFX(ac_collect);
+                GameManager.collected += 1;
+                Destroy(gameObject);
+                used = true;
+            }
         }
     }
 }

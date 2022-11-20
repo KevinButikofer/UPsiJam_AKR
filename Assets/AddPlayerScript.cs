@@ -12,6 +12,8 @@ public class AddPlayerScript : MonoBehaviour
 
     public AudioClip ac_addplayer;
 
+    private bool used = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +29,15 @@ public class AddPlayerScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.tag == "Player")
+        if (!used)
         {
-            mc.PlaySFX(ac_addplayer);
-            Instantiate(playerFactory, transform.position, Quaternion.identity, playerContainer.transform);
-            Destroy(gameObject);
+            if (collider.tag == "Player")
+            {
+                mc.PlaySFX(ac_addplayer);
+                Instantiate(playerFactory, transform.position, Quaternion.identity, playerContainer.transform);
+                Destroy(gameObject);
+                used = true;
+            }
         }
     }
 }
